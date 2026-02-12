@@ -39,7 +39,7 @@ public class Main {
     }
 
     public static void level3() {
-
+        bt1Level3();
     }
 
     private static void bt1Level1() {
@@ -163,7 +163,6 @@ public class Main {
         System.out.println(bt2.removeDuplicateChars());
     }
 
-
     public static double inputIncome() {
         Scanner sc = new Scanner(System.in);
         String input;
@@ -178,6 +177,32 @@ public class Main {
             }
 
             return Double.parseDouble(input);
+        }
+    }
+
+    public static void bt1Level3() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Nhập số phần tử: ");
+        int n = Integer.parseInt(sc.nextLine());
+
+        int[] numbers = new int[n];
+
+        System.out.println("Nhập các phần tử (đã sắp xếp tăng dần):");
+        for (int i = 0; i < n; i++) {
+            numbers[i] = Integer.parseInt(sc.nextLine());
+        }
+
+        System.out.print("Nhập target: ");
+        int target = Integer.parseInt(sc.nextLine());
+
+        ExercisesLevel3 bt1 = new ExercisesLevel3(numbers, target);
+        int[] result = bt1.twoSum();
+
+        if (result[0] == -1) {
+            System.out.println("Không tìm thấy cặp số phù hợp.");
+        } else {
+            System.out.println("Kết quả: [" + result[0] + ", " + result[1] + "]");
         }
     }
 }
