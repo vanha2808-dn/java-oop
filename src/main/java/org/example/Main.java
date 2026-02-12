@@ -31,9 +31,13 @@ public class Main {
         bt4Level1();
         bt5Level1();
     }
-    public static void level2() {
 
+    public static void level2() {
+        bt1Level2();
+        bt2Level2();
+        bt3Level2();
     }
+
     public static void level3() {
 
     }
@@ -123,6 +127,57 @@ public class Main {
             } else {
                 return str;
             }
+        }
+    }
+
+    private static void bt1Level2() {
+        double income = inputIncome();
+
+        ExercisesLevel2 taxCalculator = new ExercisesLevel2(income);
+
+        int level = taxCalculator.getTaxLevel();
+        double tax = taxCalculator.calculateTax();
+
+        System.out.println("Bậc thuế: " + level);
+        System.out.println("Thuế phải trả: " + tax + " VNĐ");
+    }
+
+    private static void bt2Level2() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Bài 2. Nhập vào 1 chuỗi để kiểm tra đối xứng ");
+        String input = sc.nextLine();
+        ExercisesLevel2 bt2 = new ExercisesLevel2(input);
+        if (bt2.isPalindrome()) {
+            System.out.println("TRUE! Chuỗi vừa nhập đối xứng ");
+        } else {
+            System.out.println("FALSE! Chuỗi vừa nhập không đối xứng ");
+        }
+    }
+
+    private static void bt3Level2() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Bài 3. Nhập vào 1 chuỗi để xoá kí tự trùng lặp ");
+        String input = sc.nextLine();
+        ExercisesLevel2 bt2 = new ExercisesLevel2(input);
+        System.out.println("Chuỗi vừa nhâo đã xoá các kí tự trùng lặp ");
+        System.out.println(bt2.removeDuplicateChars());
+    }
+
+
+    public static double inputIncome() {
+        Scanner sc = new Scanner(System.in);
+        String input;
+
+        while (true) {
+            System.out.print("Nhập thu nhập hàng năm (VNĐ): ");
+            input = sc.nextLine();
+
+            if (!input.matches("\\d+(\\.\\d+)?")) {
+                System.out.println("Không hợp lệ! Nhập lại.");
+                continue;
+            }
+
+            return Double.parseDouble(input);
         }
     }
 }
