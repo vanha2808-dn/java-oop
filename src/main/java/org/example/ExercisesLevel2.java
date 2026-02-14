@@ -15,26 +15,26 @@ public class ExercisesLevel2 {
     }
 
     public int getTaxLevel() {
-        if (income <= 5_000_000) return 1;
-        else if (income <= 10_000_000) return 2;
-        else if (income <= 18_000_000) return 3;
-        else if (income <= 32_000_000) return 4;
-        else if (income <= 52_000_000) return 5;
-        else if (income <= 80_000_000) return 6;
-        else return 7;
+        if (income <= 5_000_000) return 5;
+        else if (income <= 10_000_000) return 10;
+        else if (income <= 18_000_000) return 15;
+        else if (income <= 32_000_000) return 20;
+        else if (income <= 52_000_000) return 25;
+        else if (income <= 80_000_000) return 30;
+        else return 35;
     }
 
     public double calculateTax() {
         int level = getTaxLevel();
 
         switch (level) {
-            case 1: return income * 0.05;
-            case 2: return income * 0.10;
-            case 3: return income * 0.15;
-            case 4: return income * 0.20;
-            case 5: return income * 0.25;
-            case 6: return income * 0.30;
-            case 7: return income * 0.35;
+            case 5: return income * 0.05;
+            case 10: return income * 0.10;
+            case 15: return income * 0.15;
+            case 20: return income * 0.20;
+            case 25: return income * 0.25;
+            case 30: return income * 0.30;
+            case 35: return income * 0.35;
             default: return 0;
         }
     }

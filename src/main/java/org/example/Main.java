@@ -1,5 +1,6 @@
 package org.example;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 
@@ -38,8 +39,9 @@ public class Main {
         bt3Level2();
     }
 
-    public static void level3() {
-        bt1Level3();
+    private static void level3() {
+       // bt1Level3();
+        bt2Level3();
     }
 
     private static void bt1Level1() {
@@ -138,7 +140,7 @@ public class Main {
         int level = taxCalculator.getTaxLevel();
         double tax = taxCalculator.calculateTax();
 
-        System.out.println("Bậc thuế: " + level);
+        System.out.println("% mức thuế phải trả: " + level + "%");
         System.out.println("Thuế phải trả: " + tax + " VNĐ");
     }
 
@@ -163,7 +165,7 @@ public class Main {
         System.out.println(bt2.removeDuplicateChars());
     }
 
-    public static double inputIncome() {
+    private static double inputIncome() {
         Scanner sc = new Scanner(System.in);
         String input;
 
@@ -180,18 +182,20 @@ public class Main {
         }
     }
 
-    public static void bt1Level3() {
+    private static void bt1Level3() {
         Scanner sc = new Scanner(System.in);
-
-        System.out.print("Nhập số phần tử: ");
+        System.out.println("Bài 1. Two sum");
+        System.out.print("Nhập số lượng phần tử của mảng: ");
         int n = Integer.parseInt(sc.nextLine());
 
         int[] numbers = new int[n];
 
-        System.out.println("Nhập các phần tử (đã sắp xếp tăng dần):");
+        System.out.println("Nhập các phần tử:");
         for (int i = 0; i < n; i++) {
             numbers[i] = Integer.parseInt(sc.nextLine());
         }
+        System.out.println("Mảng vừa nhập được sắp xếp tăng dần như sau: ");
+        System.out.println(Arrays.stream(numbers).sorted());
 
         System.out.print("Nhập target: ");
         int target = Integer.parseInt(sc.nextLine());
@@ -204,5 +208,14 @@ public class Main {
         } else {
             System.out.println("Kết quả: [" + result[0] + ", " + result[1] + "]");
         }
+    }
+
+    private static void bt2Level3() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Bài 2. Nhập 1 chuỗi từ bàn phím: ");
+        String s = sc.nextLine();
+        ExercisesLevel3 bt2 = new ExercisesLevel3(s);
+        String result = bt2.longestPalindrome();
+        System.out.println("chuỗi con đối xứng dài nhất là: " + result);
     }
 }
